@@ -19,6 +19,7 @@ public class NaverApiController {
 
     @GetMapping("/navers")
     public ResponseEntity<?> findAll() {
+        System.out.println("날짜 : " + naverRepository.findAll().get(0).getCreatedAt().getClass().getName());
         return new ResponseEntity<>(new RespDto(naverRepository.findAll().size(), naverRepository.findAll()),
                 HttpStatus.OK); // 200번
     }
